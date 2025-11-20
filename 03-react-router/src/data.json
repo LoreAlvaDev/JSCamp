@@ -1,0 +1,246 @@
+[
+    {
+        "id": 1,
+        "company": "TechCorp",
+        "location": "Remoto",
+        "title": "Desarrollador Frontend",
+        "salary": "35000-45000",
+        "tags": ["JavaScript", "React"],
+        "experience": "junior",
+        "contract": "tiempo-completo",
+        "description": "Desarrollar y mantener aplicaciones web utilizando React."
+    },
+    {
+        "id": 2,
+        "company": "DataSolutions",
+        "location": "Presencial",
+        "title": "Analista de Datos",
+        "salary": "45000-60000",
+        "tags": ["Python", "SQL"],
+        "experience": "senior",
+        "contract": "medio-tiempo",
+        "description": "Analizar grandes conjuntos de datos para extraer información valiosa."
+    },
+    {
+        "id": 3,
+        "company": "WebWorks",
+        "location": "Híbrido",
+        "title": "Diseñador UX/UI",
+        "experience": "semi-senior",
+        "contract": "freelance",
+        "description": "Diseñar interfaces de usuario atractivas y funcionales."
+    },
+    {
+        "id": 4,
+        "company": "CloudNet",
+        "location": "Remoto",
+        "title": "Ingeniero DevOps",
+        "experience": "senior",
+        "contract": "tiempo-completo",
+        "description": "Implementar y gestionar infraestructuras en la nube."
+    },
+    {
+        "id": 5,
+        "company": "AppMakers",
+        "location": "Presencial",
+        "title": "Desarrollador Mobile",
+        "experience": "junior",
+        "contract": "tiempo-completo",
+        "description": "Crear aplicaciones móviles para iOS y Android."
+    },
+    {
+        "id": 6,
+        "company": "SecureIT",
+        "location": "Barcelona",
+        "title": "Especialista en Ciberseguridad",
+        "experience": "semi-senior",
+        "contract": "medio-tiempo",
+        "description": "Proteger los sistemas y redes de la company contra amenazas cibernéticas."
+    },
+    {
+        "id": 7,
+        "company": "AI Innovations",
+        "location": "Ciudad de México",
+        "title": "Científico de Datos",
+        "experience": "senior",
+        "contract": "freelance",
+        "description": "Desarrollar modelos de aprendizaje automático para resolver problemas complejos."
+    },
+    {
+        "id": 8,
+        "company": "NetSolutions",
+        "location": "Presencial",
+        "title": "Administrador de Redes",
+        "experience": "semi-senior",
+        "contract": "tiempo-completo",
+        "description": "Gestionar y mantener la infraestructura de red de la company."
+    },
+    {
+        "id": 9,
+        "company": "GameStudio",
+        "location": "Híbrido",
+        "title": "Desarrollador de Juegos",
+        "experience": "junior",
+        "contract": "tiempo-completo",
+        "description": "Diseñar y desarrollar videojuegos para diversas plataformas."
+    },
+    {
+        "id": 10,
+        "company": "FinTech Corp",
+        "location": "Remoto",
+        "title": "Desarrollador Backend",
+        "experience": "semi-senior",
+        "contract": "medio-tiempo",
+        "description": "Desarrollar y mantener la lógica del servidor y las bases de datos."
+    },
+    {
+        "id": "7a4d1d8b-1e45-4d8c-9f1a-8c2f9a9121a4",
+        "title": "Desarrollador de Software Senior",
+        "company": "Tech Solutions Inc.",
+        "location": "Remoto",
+        "description": "Buscamos un ingeniero de software con experienc en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.",
+        "tags": ["react", "node", "javascript"],
+        "experience": "junior",
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "d35b2c89-5d60-4f26-b19a-6cfb2f1a0f57",
+        "title": "Analista de Datos",
+        "company": "Data Driven Co.",
+        "location": "Ciudad de México",
+        "description": "Estamos buscando un analista de datos con experienc en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimiento en SQL, Python y R.",
+        "tags": ["python"],
+        "experience": "junior",
+        "contract": "medio-tiempo"
+    },
+    {
+        "id": "e31f9a92-61d7-4b7a-b3a2-91e8c1f40b2d",
+        "title": "Desarrollador de Aplicaciones Móviles",
+        "company": "Mobile Apps Ltd.",
+        "location": "Guadalajara",
+        "description": "Buscamos un desarrollador de aplicaciones móviles con experienc en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "freelance"
+    },
+    {
+        "id": "f62d8a34-923a-4ac2-9b0b-14e0ac2f5405",
+        "title": "Ingeniero de DevOps",
+        "company": "Cloud Services SA",
+        "location": "Remoto",
+        "description": "Estamos buscando un ingeniero de DevOps con experienc en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "temporal"
+    },
+    {
+        "id": "a9f31a8e-ec38-4fd3-9114-88cc6d37a92b",
+        "title": "Diseñador UX/UI",
+        "company": "Creative Minds Studio",
+        "location": "Barcelona",
+        "description": "Estamos buscando un diseñador UX/UI con pasión por crear experiencs digitales excepcionales. Se requiere experienc en Figma, diseño centrado en el usuario y colaboración con equipos de desarrollo.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "practicas"
+    },
+    {
+        "id": "c1b65b42-68c5-4f1c-a8c2-8d52c5a7a5d1",
+        "title": "Administrador de Bases de Datos",
+        "company": "Secure Data Corp.",
+        "location": "Buenos Aires",
+        "description": "Se busca un administrador de bases de datos con experienc en PostgreSQL y MySQL. El candidato deberá asegurar la disponibilidad, seguridad y rendimiento de las bases de datos de producción.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "bb8f2a99-6a20-4f9e-912a-16f54a49b8c3",
+        "title": "Especialista en Ciberseguridad",
+        "company": "SafeNet Solutions",
+        "location": "Remoto",
+        "description": "Buscamos un especialista en ciberseguridad con conocimientos en protección de infraestructuras, análisis de vulnerabilidades y respuesta ante incidentes. Se valorará experienc con SIEM y certificaciones de seguridad.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "practicas"
+    },
+    {
+        "id": "fe7b2c54-4f47-4e2b-9e87-2b5413a6b24f",
+        "title": "Product Manager",
+        "company": "NextGen Technologies",
+        "location": "Madrid",
+        "description": "Estamos buscando un Product Manager con experienc en la definición y lanzamiento de productos digitales. Se requiere capacidad analítica, liderazgo y conocimiento en metodologías ágiles.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "medio-tiempo"
+    },
+    {
+        "id": "a71f7a92-56d9-4b42-9f16-cb29b40e5f2c",
+        "title": "Frontend Developer",
+        "company": "Bright Web Studio",
+        "location": "Valencia",
+        "description": "Buscamos un desarrollador frontend con experienc en React, TypeScript y Tailwind CSS. Se valorará conocimiento en optimización de rendimiento y accesibilidad web.",
+        "experience": "junior",
+        "tags": ["react"],
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "f91e4c7b-3840-43da-8ad7-3a52e2a8cf1d",
+        "title": "Backend Developer",
+        "company": "APIWorks",
+        "location": "Bogotá",
+        "description": "Estamos buscando un desarrollador backend con experienc en Node.js, Express y bases de datos NoSQL. Se requiere conocimiento en arquitectura de microservicios.",
+        "experience": "junior",
+        "tags": ["node"],
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "b65a3c9f-b174-4d86-b8a2-9cf9b1e13a22",
+        "title": "Ingeniero de Machine Learning",
+        "company": "AI Labs",
+        "location": "Remoto",
+        "description": "Buscamos un ingeniero de machine learning con experienc en modelos de predicción y procesamiento de datos. Se valorará conocimiento en TensorFlow, PyTorch y MLOps.",
+        "experience": "junior",
+        "tags": ["python"],
+        "contract": "freelance"
+    },
+    {
+        "id": "e8d13c45-36cb-46cf-8f9d-8a0a7b532b8b",
+        "title": "QA Automation Engineer",
+        "company": "Quality First",
+        "location": "Lima",
+        "description": "Se busca ingeniero de QA con experienc en automatización de pruebas utilizando herramientas como Selenium, Cypress o Playwright. Conocimiento deseado en CI/CD.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "d2e93b8a-0b41-4d09-9a52-36a0f418d493",
+        "title": "Administrador de Sistemas",
+        "company": "InfraTech Global",
+        "location": "Santiago de Chile",
+        "description": "Buscamos un administrador de sistemas con experienc en Linux, Docker y monitoreo de servidores. Conocimiento en scripting Bash o Python será un plus.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "tiempo-completo"
+    },
+    {
+        "id": "cc0c1fae-4e85-4e2c-9b02-f12f9df8a2c9",
+        "title": "Scrum Master",
+        "company": "Agile Minds",
+        "location": "Madrid",
+        "description": "Estamos buscando un Scrum Master con experienc en metodologías ágiles y gestión de equipos multidisciplinarios. Certificación Scrum Master deseable.",
+        "experience": "senior",
+        "tags": ["mobile"],
+        "contract": "medio-tiempo"
+    },
+    {
+        "id": "a2f1d8c6-b72c-45f5-bcc5-5c1d1f39b0b1",
+        "title": "Soporte Técnico experience 2",
+        "company": "HelpDesk Pro",
+        "location": "Monterrey",
+        "description": "Buscamos un técnico de soporte con habilidades en resolución de incidencias, redes y sistemas operativos. Se requiere atención al detalle y excelente trato con el usuario.",
+        "experience": "junior",
+        "tags": ["mobile"],
+        "contract": "practicas"
+    }
+]

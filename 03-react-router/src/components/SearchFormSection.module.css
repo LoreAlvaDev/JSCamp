@@ -1,0 +1,70 @@
+/* src/styles/SearchForm.css */
+.buscador,
+.formGroup select {
+    border: 2px solid #d1d5db;
+    transition: border-color 0.2s ease;
+}
+
+.inputFocused {
+    border-color: #4f46e5 !important;
+    outline: 2px solid #4f46e5;
+}
+
+.inputHint {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.buscador {
+    position: relative;
+    display: flex;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    align-items: center;
+    width: 100%;
+    padding-left: 12px;
+    background-color: var(--input-bg);
+    margin-bottom: 12px;
+    svg {
+        stroke: #64748b;
+        color: #64748b;
+    }
+    &:focus-within {
+        border-color: #4f46e5 !important;
+        outline: 2px solid #4f46e5;
+    }
+}
+.botonBuscar,
+.botonLimpiar {
+    border-radius: 0.5rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    white-space: nowrap;
+    &:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+
+    margin-left: auto;
+    padding: 8px 16px;
+    background-color: var(--card-bg);
+    transition: background-color 0.2s;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    &:hover {
+        background-color: #4338ca !important;
+        border-color: #4f46e5 !important;
+        outline: 2px solid #fffeff;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}

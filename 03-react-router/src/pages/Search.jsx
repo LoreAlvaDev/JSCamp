@@ -32,3 +32,5 @@ export const SearchPage = () => {
         </div>
     );
 };
+
+export default SearchPage;

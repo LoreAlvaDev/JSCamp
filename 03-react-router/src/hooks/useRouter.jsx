@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
-
+import { useNavigate, useLocation } from "react-router";
 // Custom hook to get the current path
 export const useRouter = () => {
-    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    useEffect(() => {
-        const onLocationChange = () => {
-            setCurrentPath(window.location.pathname);
-        };
-
-        window.addEventListener("popstate", onLocationChange);
-
-        return () => {
-            //limpieza del evento para no dejar listeners colgados
-            window.removeEventListener("popstate", onLocationChange);
-        };
-    }, []);
     const navigateTo = (path) => {
-        window.history.pushState({}, "", path);
-        window.dispatchEvent(new PopStateEvent("popstate"));
+        console.log("navego a ", path);
+
+        navigate(path);
     };
-    return { currentPath, navigateTo };
+    return { currentPath: location.pathname, navigateTo };
 };

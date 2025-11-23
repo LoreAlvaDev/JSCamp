@@ -1,15 +1,13 @@
-import { useRouter } from "../hooks/useRouter";
+import { Link as NavLink } from "react-router";
+// import { useRouter } from "../hooks/useRouter";
 
 export const Link = ({ href, children, ...restOfProps }) => {
-    const { navigateTo, currentPath } = useRouter();
-    const handleClick = (event) => {
-        event.preventDefault();
-        navigateTo(href);
-    };
-    const clase = currentPath === href ? "menuActivo" : "";
+    // const { currentPath } = useRouter();
+    // const clase = currentPath === href ? className + "menuActivo" : className;
+
     return (
-        <a href={href} {...restOfProps} className={clase} onClick={handleClick}>
+        <NavLink to={href} {...restOfProps}>
             {children}
-        </a>
+        </NavLink>
     );
 };

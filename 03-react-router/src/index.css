@@ -105,16 +105,16 @@ nav a {
     color: var(--text-secondary);
     transition: color 0.2s;
     font-weight: 500;
-    &.menuActivo {
-        color: var(--primary-light);
-        font-weight: 700;
-        pointer-events: none;
-    }
 }
 nav a:hover,
 nav a:focus {
     color: var(--primary-hover);
     outline: none;
+}
+.menuActivo {
+    color: var(--primary-light);
+    font-weight: 700;
+    pointer-events: none;
 }
 
 /* Formulario de búsqueda reutilizable */

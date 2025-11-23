@@ -1,12 +1,17 @@
+import { useMemo } from "react";
 import { DevJobsAvatar } from "./DevJobsAvatar";
-import { Link } from "./Link";
+// import { Link } from "./Link";
+import { NavLink as Link } from "react-router";
 
 export const Header = () => {
+    const avatar = useMemo(() => {
+        return <DevJobsAvatar service="x" username="mi8dev" size="50" />;
+    }, []);
     return (
         <header className="headerFijado">
             <div className="barraNavegacion">
                 <div className="empresa">
-                    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <Link to="/" className={({ isActive }) => (isActive ? "menuActivo" : "")} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
                         <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 clipRule="evenodd"
@@ -18,17 +23,21 @@ export const Header = () => {
                     </Link>
                 </div>
                 <nav>
-                    <Link href="/search">Empleos</Link>
-                    {/* <Link href="">Empresas</Link>
-                    <Link href="">Salarios</Link> */}
-                    <Link href="/contact">Contacto</Link>
+                    <Link to="/search" className={({ isActive }) => (isActive ? "menuActivo" : "")}>
+                        Empleos
+                    </Link>
+                    {/* <Link to="">Empresas</Link>
+                    <Link to="">Salarios</Link> */}
+                    <Link to="/contact" className={({ isActive }) => (isActive ? "menuActivo" : "")}>
+                        Contacto
+                    </Link>
                 </nav>
             </div>
             <div className="acciones">
                 <a href="" className="botonAzul">
                     Subir CV
                 </a>
-                <DevJobsAvatar service="x" username="mi8dev" size="50" />
+                {avatar}
             </div>
         </header>
     );

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Badge } from "./Badge";
+import { Link } from "./Link";
+import styles from "./JobCard.module.css";
 
 export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
     // extraemos las propiedades del objeto job
@@ -21,7 +23,12 @@ export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
             data-contrato={contract?.toLowerCase().replace(" ", "-")}
             data-experiencia={experience?.toLowerCase().replace(" ", "-")}>
             <header className="job-card-header">
-                <h3 className="job-title">{titulo}</h3>
+                <h3 className="job-title">
+                    <Link className={styles.title} href={`/jobs/${job.id}`}>
+                        {titulo}
+                    </Link>
+                </h3>
+
                 <p className="job-company">{empresa}</p>
                 <div className="badges">
                     {isNew && <Badge type="new">🆕 Nuevo</Badge>}
@@ -35,10 +42,19 @@ export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
                 <p className="job-description">{descripcion}</p>
             </div>
             <footer className="job-card-footer">
-                <span className="job-tags">{tags?.join(", ")}</span>
-                <button className={buttonClasses} disabled={isApplied} onClick={handleClick}>
-                    {textBtn}
-                </button>
+                <div className={styles.actions}>
+                    <span className="job-tags">{tags?.join(", ")}</span>
+                    <div>
+                        <Link href={`/jobs/${job.id}`} className={styles.details}>
+                            Ver detalles
+                        </Link>
+                    </div>
+                    <div className="button-apply-now">
+                        <button className={buttonClasses} disabled={isApplied} onClick={handleClick}>
+                            {textBtn}
+                        </button>
+                    </div>
+                </div>
             </footer>
         </article>
     );

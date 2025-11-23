@@ -6,25 +6,21 @@ import { useRouter } from "./useRouter";
 export const RESULTS_PER_PAGE = 10;
 
 export const useFilterJobs = () => {
-    const [textFilter, setTextFilter] = useState(() => {
-        const params = new URLSearchParams(window.location.search);
-        return params.get("text") || "";
-    });
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [textFilter, setTextFilter] = useState(() => searchParams.get("text") || "");
     const [filters, setFilters] = useState(() => {
-        const params = new URLSearchParams(window.location.search);
         return {
-            level: params.get("level") || "",
-            contract: params.get("contract") || "",
-            type: params.get("type") || "",
-            technology: params.get("technology") || "",
+            level: searchParams.get("level") || "",
+            contract: searchParams.get("contract") || "",
+            type: searchParams.get("type") || "",
+            technology: searchParams.get("technology") || "",
         };
     });
-    const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = Number(searchParams.get("page")) || 1;
 
     const [jobs, setJobs] = useState([]);
     const [totalJobs, setTotalJobs] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const { navigateTo } = useRouter();
@@ -68,19 +64,18 @@ export const useFilterJobs = () => {
     }, [textFilter, filters, currentPage]);
 
     useEffect(() => {
-        const params = new URLSearchParams();
-        if (textFilter) {
-            params.append("text", textFilter);
-        }
-        Object.entries(filters).forEach(([key, value]) => {
-            if (value) {
-                params.append(key, value);
+        setSearchParams((params) => {
+            if (textFilter) {
+                params.set("text", textFilter);
             }
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value) {
+                    params.set(key, value);
+                }
+            });
+            return params;
         });
-        if (currentPage > 1) params.append("page", currentPage);
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        navigateTo(newUrl);
-    }, [textFilter, filters, currentPage, navigateTo]);
+    }, [textFilter, filters, currentPage, setSearchParams]);
 
     const handlePageChange = (page) => {
         // setCurrentPage(page);

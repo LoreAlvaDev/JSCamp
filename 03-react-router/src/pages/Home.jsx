@@ -7,6 +7,8 @@ export const HomePage = () => {
         const formData = new FormData(event.target);
         const query = formData.get("search") || "";
         const url = query ? `/search?text=${encodeURIComponent(query)}` : "/search";
+        console.log("en handleSearch");
+
         navigateTo(url);
     };
     return (
@@ -72,3 +74,5 @@ export const HomePage = () => {
         </main>
     );
 };
+
+export default HomePage;

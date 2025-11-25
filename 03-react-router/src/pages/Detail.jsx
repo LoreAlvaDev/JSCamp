@@ -84,7 +84,7 @@ const JobSection = ({ title, content }) => {
     return (
         <section className={styles.section}>
             <h2 className={`${styles.sectionTitle} prose`}>{title}</h2>
-            <div className={styles.jobSectionContent} dangerouslySetInnerHTML={{ __html: html }}></div>
+            <div className={`${styles.jobSectionContent} requirements`} dangerouslySetInnerHTML={{ __html: html }}></div>
         </section>
     );
 };

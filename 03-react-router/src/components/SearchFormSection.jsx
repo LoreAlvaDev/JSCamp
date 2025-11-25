@@ -29,6 +29,12 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
     //estado para saber qué campo está activo
     const [focusedField, setFocusedField] = useState(null);
 
+    console.log(initialFilters);
+
+    const handleSelectChange = (ev) => {
+        console.log(ev.target.value);
+    };
+
     return (
         <section>
             <h2 className="titulazo">Encuentra tu próximo trabajo</h2>
@@ -72,7 +78,7 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
                             // onChange={handleChange}
                             onFocus={() => setFocusedField("tech")}
                             onBlur={() => setFocusedField(null)}
-                            className={`${focusedField === "tech" ? styles.inputFocused : ""} selectFiltro`}>
+                            defaultValue={initialFilters?.technology || ""}>
                             <option value="">Todas las tecnologías</option>
                             <optgroup label="Frontend">
                                 <option value="html">HTML</option>
@@ -100,6 +106,7 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
                             name={locationSelectId}
                             id="ubicacion-select"
                             // onChange={handleChange}
+                            defaultValue={initialFilters?.type || ""}
                             onFocus={() => setFocusedField("location")}
                             onBlur={() => setFocusedField(null)}
                             className={`${focusedField === "location" ? styles.inputFocused : ""} selectFiltro`}>
@@ -127,6 +134,7 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
                             name={contractSelectId}
                             id="contrato-select"
                             // onChange={handleChange}
+                            defaultValue={initialFilters?.contract || ""}
                             onFocus={() => setFocusedField("contrato")}
                             onBlur={() => setFocusedField(null)}
                             className={`${focusedField === "contrato" ? styles.inputFocused : ""} selectFiltro`}>
@@ -143,6 +151,7 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
                             name={experienceSelectId}
                             id="experiencia-select"
                             // onChange={handleChange}
+                            defaultValue={initialFilters?.level || ""}
                             onFocus={() => setFocusedField("experiencia")}
                             onBlur={() => setFocusedField(null)}
                             className={`${focusedField === "experiencia" ? styles.inputFocused : ""} selectFiltro`}>

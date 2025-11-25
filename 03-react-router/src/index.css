@@ -756,3 +756,27 @@ main {
         color: var(--text-secondary);
     }
 }
+/*********************/
+.requirements ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.requirements ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.requirements ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2309f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}

@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { DevJobsAvatar } from "./DevJobsAvatar";
-import { useAuth } from "../hooks/useAuth";
+import { useAuthStore } from "../store/authStore";
 
 export const LoginButton = () => {
-    const { isLoggedIn, login, logout } = useAuth();
+    const { isLoggedIn, login, logout } = useAuthStore();
     const avatar = useMemo(() => {
         return <DevJobsAvatar service="x" username="mi8dev" size="50" />;
     }, []);

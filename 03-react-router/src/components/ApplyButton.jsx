@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import styles from "./../pages/Detail.module.css";
 
 export const ApplyButton = () => {
-    const { isLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn } = useAuth();
     return (
         <>
             <button className={styles.applyButton} disabled={!isLoggedIn}>

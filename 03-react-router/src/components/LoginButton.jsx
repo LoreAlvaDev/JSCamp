@@ -1,9 +1,9 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import { DevJobsAvatar } from "./DevJobsAvatar";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 export const LoginButton = () => {
-    const { isLoggedIn, login, logout } = useContext(AuthContext);
+    const { isLoggedIn, login, logout } = useAuth();
     const avatar = useMemo(() => {
         return <DevJobsAvatar service="x" username="mi8dev" size="50" />;
     }, []);

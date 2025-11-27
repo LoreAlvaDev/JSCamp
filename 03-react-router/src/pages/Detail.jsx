@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import styles from "./Detail.module.css";
 import snarkdown from "snarkdown";
 import { ApplyButton } from "../components/ApplyButton";
+import { FavoriteButton } from "../components/FavoriteButton";
 
 export const Detail = () => {
     const { id } = useParams();
@@ -69,7 +70,10 @@ export const Detail = () => {
                     <JobSection title="Responsabilidades" content={job.content.responsibilities} />
                     <JobSection title="Requisitos" content={job.content.requirements} />
                     <JobSection title="¿Cómo aplicar?" content={job.content.about} />
-                    <ApplyButton />
+                    <div className="button-apply-now">
+                        <ApplyButton jobId={job.id} />
+                        <FavoriteButton jobId={job.id} />
+                    </div>
                 </div>
             </div>
         </section>

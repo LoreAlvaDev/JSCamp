@@ -1,19 +1,13 @@
-import { useState } from "react";
 import { Badge } from "./Badge";
 import { Link } from "./Link";
 import styles from "./JobCard.module.css";
+import { FavoriteButton } from "./FavoriteButton";
+import { ApplyButton } from "./ApplyButton";
 
 export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
     // extraemos las propiedades del objeto job
     const { titulo, empresa, ubicacion, salary, descripcion, tags, contract, experience } = job;
     const isRemote = ubicacion?.toLowerCase().includes("remote") || ubicacion?.toLowerCase().includes("remoto");
-    const [isApplied, setIsApplied] = useState(false);
-
-    const buttonClasses = `jobApplybtn ${isApplied ? "is-applied" : ""}`;
-    const textBtn = isApplied ? "Aplicado" : "Aplicar";
-    const handleClick = () => {
-        setIsApplied(!isApplied);
-    };
 
     return (
         <article
@@ -50,9 +44,8 @@ export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
                         </Link>
                     </div>
                     <div className="button-apply-now">
-                        <button className={buttonClasses} disabled={isApplied} onClick={handleClick}>
-                            {textBtn}
-                        </button>
+                        <ApplyButton jobId={job.id} />
+                        <FavoriteButton jobId={job.id} />
                     </div>
                 </div>
             </footer>

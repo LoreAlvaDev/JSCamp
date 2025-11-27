@@ -1,7 +1,14 @@
 import { NavLink as Link } from "react-router";
 import { LoginButton } from "./LoginButton";
+import { useFavoritesStore } from "../store/favoritesStore";
+import { useAuthStore } from "../store/authStore";
 
 export const Header = () => {
+    const { isLoggedIn } = useAuthStore();
+    const { countFavorites } = useFavoritesStore();
+
+    const numberOfFavorites = countFavorites();
+
     return (
         <header className="headerFijado">
             <div className="barraNavegacion">
@@ -26,6 +33,11 @@ export const Header = () => {
                     <Link to="/contact" className={({ isActive }) => (isActive ? "menuActivo" : "")}>
                         Contacto
                     </Link>
+                    {isLoggedIn && (
+                        <Link to="/profile" className={({ isActive }) => (isActive ? "menuActivo" : "")}>
+                            Profile (❤️ {numberOfFavorites})
+                        </Link>
+                    )}
                 </nav>
             </div>
             <div className="acciones">

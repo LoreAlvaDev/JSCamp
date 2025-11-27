@@ -29,12 +29,6 @@ export const SearchFormSection = ({ onSearch, onTextFilter, initialText, initial
     //estado para saber qué campo está activo
     const [focusedField, setFocusedField] = useState(null);
 
-    console.log(initialFilters);
-
-    const handleSelectChange = (ev) => {
-        console.log(ev.target.value);
-    };
-
     return (
         <section>
             <h2 className="titulazo">Encuentra tu próximo trabajo</h2>

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import styles from "./Detail.module.css";
 import snarkdown from "snarkdown";
+import { ApplyButton } from "../components/ApplyButton";
 
 export const Detail = () => {
     const { id } = useParams();
@@ -47,7 +48,6 @@ export const Detail = () => {
             </div>
         );
     }
-    // console.log(job);
 
     return (
         <section>
@@ -69,7 +69,7 @@ export const Detail = () => {
                     <JobSection title="Responsabilidades" content={job.content.responsibilities} />
                     <JobSection title="Requisitos" content={job.content.requirements} />
                     <JobSection title="¿Cómo aplicar?" content={job.content.about} />
-                    <button className={styles.applyButton}>Aplicar ahora</button>
+                    <ApplyButton />
                 </div>
             </div>
         </section>

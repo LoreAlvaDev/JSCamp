@@ -1,12 +1,7 @@
-import { useMemo } from "react";
-import { DevJobsAvatar } from "./DevJobsAvatar";
-// import { Link } from "./Link";
 import { NavLink as Link } from "react-router";
+import { LoginButton } from "./LoginButton";
 
 export const Header = () => {
-    const avatar = useMemo(() => {
-        return <DevJobsAvatar service="x" username="mi8dev" size="50" />;
-    }, []);
     return (
         <header className="headerFijado">
             <div className="barraNavegacion">
@@ -37,7 +32,7 @@ export const Header = () => {
                 <a href="" className="botonAzul">
                     Subir CV
                 </a>
-                {avatar}
+                <LoginButton />
             </div>
         </header>
     );

@@ -125,3 +125,9 @@
 .sectionContent {
     color: var(--text-secondary);
 }
+
+.jobSectionContent  {
+    max-width: 70ch;
+  line-height: 1.7; /* Espaciado cómodo */
+  font-size: 1rem; /* 16px, tamaño legible */
+}

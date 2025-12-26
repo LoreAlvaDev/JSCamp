@@ -86,7 +86,7 @@ const JobSection = ({ title, content }) => {
     // console.log(html);
 
     return (
-        <section className={styles.section}>
+            <section className={styles.section}>
             <h2 className={`${styles.sectionTitle} prose`}>{title}</h2>
             <div className={`${styles.jobSectionContent} requirements`} dangerouslySetInnerHTML={{ __html: html }}></div>
         </section>

@@ -33,7 +33,7 @@ export const Pagination = ({ numPags = 1, paginaActual = 1, onPageChange }) => {
     return (
         <>
             <nav className={styles.paginacion}>
-                <a href={buildPageUrl(paginaActual - 1)} onClick={handlePrevClick} className={paginaActual === 1 ? styles.isDisabled : ""}>
+                <a href={buildPageUrl(paginaActual - 1)} onClick={handlePrevClick} className={paginaActual === 1 ? styles.isDisabled : ""}  aria-disabled={paginaActual === 1}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -54,7 +54,8 @@ export const Pagination = ({ numPags = 1, paginaActual = 1, onPageChange }) => {
                         {i}
                     </a>
                 ))}
-                <a href={buildPageUrl(parseInt(paginaActual) + 1)} onClick={handleNextClick} className={paginaActual === numPags ? styles.isDisabled : ""}>
+                <a href={buildPageUrl(parseInt(paginaActual) + 1)} onClick={handleNextClick} className={paginaActual === numPags ? styles.isDisabled : ""}
+                 aria-disabled={paginaActual === 1}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

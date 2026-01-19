@@ -16,13 +16,20 @@ const dirsOnly = process.argv.includes("--dirs-only");
 function formatFileSize(bytes) {
     if (bytes === 0) return "0 bytes";
     const k = 1024;
-    const sizes = ["bytes", "KB", "MB", "GB"];
+    const sizes = [" b", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return `${(bytes / Math.pow(k, i)).toFixed(2)} ${sizes[i]}`;
 }
 
 //leer los nombre de los archivos en el directorio sin informacion adicional
-const files = await readdir(directory);
+// const files = await readdir(directory);
+let files;
+try {
+    files = await readdir(directory);
+} catch {
+    console.error(`❌ No se pudo leer el directorio: ${directory}`);
+    process.exit(1);
+}
 console.log(`Archivos en el directorio '${directory}':`);
 console.log("---------------------------------------");
 //pedir informacion adicional de cada archivo
@@ -55,7 +62,9 @@ console.log("---------------------------------------");
 filteredFilesInfo.forEach((file) => {
     const icon = file.isDir ? "📁" : "📄";
     const size = file.isDir ? "-" : file.size;
-    console.log(` ${icon}  ${file.name.padEnd(20)}${size}`);
+    // const fileModified = file.mtime.toLocaleString();
+
+    console.log(` ${icon}  ${file.name.padEnd(20)}${size.padStart(10)} `);
 });
 //Para ejecutar: node cli.js [directorio]
 //Si no se pasa el directorio, lista el actual

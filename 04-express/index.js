@@ -1,6 +1,6 @@
 import express from "express";
-// import { jobs } from "./jobs.json" with { type: "json" };
 import { DEFAULTS } from "./config.js";
+import cors from "cors";
 
 const PORT = process.env.PORT || DEFAULTS.PORT;
 const app = express();
@@ -8,18 +8,28 @@ const app = express();
 //leer el fichero de jobs
 const { default: jobs } = await import("./jobs.json", { with: { type: "json" } });
 
+const ACCEPTED_ORIGINS = ["http://localhost:5174", "http://localhost:5173"];
+
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            console.log(origin, ACCEPTED_ORIGINS);
+            if (ACCEPTED_ORIGINS.includes(origin)) {
+                callback(null, true);
+            }
+            return callback(new Error("Origen no permitido " + origin));
+        },
+    }),
+);
+
 app.use((req, res, next) => {
     const timeString = new Date().toISOString();
     console.log(`[${timeString}] ${req.method} - ${req.url}`);
     next();
 });
+app.use(express.json());
 
-const previousHomeMiddleWare = (req, res, next) => {
-    console.log("cosas antes de home");
-    next();
-};
-
-app.get("/", previousHomeMiddleWare, (req, res) => {
+app.get("/", (req, res) => {
     res.send("<h1>Hola Mundo con Express</h1>");
 });
 
@@ -27,7 +37,8 @@ app.get("/health", (req, res) => {
     return res.json({ status: "OK", uptime: process.uptime() });
 });
 
-app.get("/get-jobs", async (req, res) => {
+app.get("/jobs", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     console.log(req.query);
     const { limit = DEFAULTS.LIMIT_PAGINATION, offset = DEFAULTS.LIMIT_OFFSET, technology, text, title, level } = req.query;
 
@@ -52,14 +63,18 @@ app.get("/get-jobs", async (req, res) => {
     const nOffset = Number(offset);
 
     const paginatedJobs = filteredJobs.slice(nOffset, nOffset + nLimit);
-
-    return res.json({ paginatedJobs });
+    //TODO faltan datos aqui
+    return res.json({ data: paginatedJobs, total: filteredJobs.length });
 });
 
-app.get("/get-single-job/:id", (req, res) => {
+const obtenerJob = (id) => {
+    return jobs.find((job) => job.id === id);
+};
+
+app.get("/jobs/:id", (req, res) => {
     const jobId = req.params.id;
 
-    const job = jobs.find((job) => job.id === jobId);
+    const job = obtenerJob(jobId);
 
     if (!job) {
         return res.status(404).json({ error: "Job not found" });
@@ -67,22 +82,64 @@ app.get("/get-single-job/:id", (req, res) => {
     return res.json({ job });
 });
 
-//opcional con {} -> abcd o acd
-app.get("/a{b}cd", (req, resp) => {
-    return resp.send("abcd o acd");
+app.delete("/jobs", (req, res) => {
+    return res.status(403).json({ error: "No tienes permiso para eliminar todos los trabajos" });
 });
 
-//el comodin *
-//sirve sobre todo pararutas más largas que no saben como terminan
-// por ejemplo /file/*filename <- lo que sea se llama filename
-app.get("/bb*bb", (req, resp) => {
-    console.log(req);
-    return resp.send("comodin");
+app.delete("/jobs/:id", (req, res) => {
+    //TODO hay que hacerlo
+    const jobId = req.params.id;
+
+    const job = obtenerJob(jobId);
+
+    if (!job) {
+        return res.status(404).json({ error: "Job not found" });
+    }
+
+    return res.status(403).json({ error: "No tienes permiso para eliminar trabajos" });
 });
 
-//usando regex
-app.get(/.*fly$/, (req, res) => {
-    return res.send("termina en fly");
+//crear nuevo job
+app.post("/jobs", (req, res) => {
+    //previamente hay que parsear el json del body en un middleware
+    console.log(`creando ${req.body}`);
+    const { titulo, empresa, ubicacion, data } = req.body;
+    const newJob = {
+        id: crypto.randomUUID(),
+        titulo,
+        empresa,
+        ubicacion,
+        data,
+    };
+    jobs.push(newJob);
+    return res.status(201).json(newJob);
+});
+
+//sustituir job
+app.put("/jobs/:id", (req, res) => {
+    //TODO hay que hacerlo
+    const jobId = req.params.id;
+
+    const job = obtenerJob(jobId);
+
+    if (!job) {
+        return res.status(404).json({ error: "Job not found" });
+    }
+
+    return res.status(201);
+});
+
+//actualizar job
+app.patch("/jobs/:id", (req, res) => {
+    const jobId = req.params.id;
+
+    const job = obtenerJob(jobId);
+
+    if (!job) {
+        return res.status(404).json({ error: "Job not found" });
+    }
+    //TODO hay que hacerlo
+    return res.status(201);
 });
 
 app.listen(PORT, () => {

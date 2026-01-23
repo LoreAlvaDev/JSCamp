@@ -15,7 +15,7 @@ export const Detail = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://jscamp-api.vercel.app/api/jobs/${id}`)
+        fetch(`http://localhost:1000/jobs/${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Job not found");

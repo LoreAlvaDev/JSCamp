@@ -42,7 +42,7 @@ export const useFilterJobs = () => {
             const queryString = params.toString() ? `?${params.toString()}` : "";
 
             setLoading(true);
-            const response = await fetch(`https://jscamp-api.vercel.app/api/jobs${queryString}`);
+            const response = await fetch(`http://localhost:1000/jobs${queryString}`);
             const data = await response.json();
             setJobs(data.data);
             setTotalJobs(data.total);

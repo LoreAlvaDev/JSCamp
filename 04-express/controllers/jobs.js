@@ -33,14 +33,13 @@ export class JobController {
         return res.status(403).json({ error: "No tienes permiso para eliminar todos los trabajos" });
     }
 
-    //TODO hay que acabarlo
     static async update(req, res) {
         //previamente hay que parsear el json del body en un middleware
         const { id } = req.params;
         const { titulo, empresa, ubicacion, descripcion, data } = req.body;
         console.log(`modificando ${id}`);
         const updated = await JobModel.update({ id, titulo, empresa, ubicacion, descripcion, data });
-        return res.status(204).json(updated);
+        return res.json(updated);
     }
 
     static async partialUpdate(req, res) {
@@ -49,7 +48,7 @@ export class JobController {
         console.log(`modificando patch ${id}`);
         const updated = await JobModel.partialUpdate({ id, titulo, empresa, ubicacion, descripcion, data });
         console.log("recibimos", updated);
-        return res.status(204).json(updated);
+        return res.json(updated);
     }
 
     static async delete(req, res) {

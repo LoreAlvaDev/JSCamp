@@ -63,7 +63,6 @@ app.get("/jobs", async (req, res) => {
     const nOffset = Number(offset);
 
     const paginatedJobs = filteredJobs.slice(nOffset, nOffset + nLimit);
-    //TODO faltan datos aqui
     return res.json({ data: paginatedJobs, total: filteredJobs.length });
 });
 
@@ -87,7 +86,6 @@ app.delete("/jobs", (req, res) => {
 });
 
 app.delete("/jobs/:id", (req, res) => {
-    //TODO hay que hacerlo
     const jobId = req.params.id;
 
     const job = obtenerJob(jobId);
@@ -117,7 +115,6 @@ app.post("/jobs", (req, res) => {
 
 //sustituir job
 app.put("/jobs/:id", (req, res) => {
-    //TODO hay que hacerlo
     const jobId = req.params.id;
 
     const job = obtenerJob(jobId);
@@ -138,7 +135,6 @@ app.patch("/jobs/:id", (req, res) => {
     if (!job) {
         return res.status(404).json({ error: "Job not found" });
     }
-    //TODO hay que hacerlo
     return res.status(201);
 });
 

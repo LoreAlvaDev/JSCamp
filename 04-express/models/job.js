@@ -39,7 +39,6 @@ export class JobModel {
         const nOffset = Number(offset);
 
         const paginatedJobs = filteredJobs.slice(nOffset, nOffset + nLimit);
-        //TODO faltan datos aqui
 
         return { data: paginatedJobs, total: filteredJobs.length };
     }

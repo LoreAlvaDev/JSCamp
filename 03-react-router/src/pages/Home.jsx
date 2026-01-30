@@ -35,7 +35,7 @@ export const HomePage = () => {
                             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                             <path d="M21 21l-6 -6" />
                         </svg>
-                        <input name="search" required type="text" placeholder="Buscar empleos por título, habilidad o empresa" />
+                        <input name="search" required type="search" placeholder="Buscar empleos por título, habilidad o empresa" />
                         <button type="submit">Buscar</button>
                     </div>
                 </form>

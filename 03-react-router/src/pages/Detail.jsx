@@ -4,6 +4,7 @@ import styles from "./Detail.module.css";
 import snarkdown from "snarkdown";
 import { ApplyButton } from "../components/ApplyButton";
 import { FavoriteButton } from "../components/FavoriteButton";
+import { API_URL } from "../../config";
 
 export const Detail = () => {
     const { id } = useParams();
@@ -15,7 +16,7 @@ export const Detail = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:1000/jobs/${id}`)
+        fetch(`${API_URL}${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Job not found");
@@ -86,7 +87,7 @@ const JobSection = ({ title, content }) => {
     // console.log(html);
 
     return (
-            <section className={styles.section}>
+        <section className={styles.section}>
             <h2 className={`${styles.sectionTitle} prose`}>{title}</h2>
             <div className={`${styles.jobSectionContent} requirements`} dangerouslySetInnerHTML={{ __html: html }}></div>
         </section>

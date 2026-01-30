@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 //import jobs from "../data.json";
 import { useSearchParams } from "react-router";
 import { useRouter } from "./useRouter";
+import { API_URL } from "../../config";
 
 export const RESULTS_PER_PAGE = 10;
 
@@ -42,7 +43,7 @@ export const useFilterJobs = () => {
             const queryString = params.toString() ? `?${params.toString()}` : "";
 
             setLoading(true);
-            const response = await fetch(`http://localhost:1000/jobs${queryString}`);
+            const response = await fetch(`${API_URL}${queryString}`);
             const data = await response.json();
             setJobs(data.data);
             setTotalJobs(data.total);

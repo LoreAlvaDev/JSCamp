@@ -5,15 +5,15 @@ export class JobModel {
     static async getAll({ limit = DEFAULTS.LIMIT_PAGINATION, offset = DEFAULTS.LIMIT_OFFSET, technology, text, type, level, contract }) {
         let filteredJobs = jobs;
         //vamos a filtrar
-        console.log(filteredJobs.length, text);
+        // console.log(filteredJobs.length, text);
         if (text) {
             const searchTerm = text.toLowerCase();
-            console.log(searchTerm);
+            // console.log(searchTerm);
             filteredJobs = filteredJobs.filter((job) => {
                 return job.titulo.toLowerCase().includes(searchTerm) || job.descripcion.toLowerCase().includes(searchTerm);
             });
         }
-        console.log(filteredJobs.length, technology);
+        // console.log(filteredJobs.length, technology);
         if (technology) {
             filteredJobs = filteredJobs.filter((job) => job.data.technology.includes(technology.toLowerCase()));
         }
@@ -33,7 +33,7 @@ export class JobModel {
         //     });
         // }
 
-        console.log(filteredJobs.length);
+        // console.log(filteredJobs.length);
 
         const nLimit = Number(limit);
         const nOffset = Number(offset);
@@ -53,10 +53,10 @@ export class JobModel {
             data,
         };
         jobs.push(newJob);
-        console.log(
-            jobs.length,
-            jobs.reduce((prev, j) => prev + "," + j.empresa, ""),
-        );
+        // console.log(
+        //     jobs.length,
+        //     jobs.reduce((prev, j) => prev + "," + j.empresa, ""),
+        // );
         return newJob;
     }
 
@@ -69,7 +69,7 @@ export class JobModel {
         const updatedJob = { id, titulo, empresa, ubicacion, descripcion, data };
 
         const index = jobs.findIndex((job) => job.id === id);
-        console.log(updatedJob, id, index);
+        // console.log(updatedJob, id, index);
 
         if (index !== -1) {
             jobs[index] = updatedJob;
@@ -90,7 +90,7 @@ export class JobModel {
             if (data !== undefined) updatedJob.data = data;
 
             const index = jobs.findIndex((job) => job.id === id);
-            console.log(updatedJob, id, index);
+            // console.log(updatedJob, id, index);
 
             if (index !== -1) {
                 jobs[index] = updatedJob;
@@ -99,17 +99,17 @@ export class JobModel {
             }
             return updatedJob;
         }
-        console.log("no lo encontramos");
+        // console.log("no lo encontramos");
         return null;
     }
 
     static async delete(id) {
         const index = jobs.findIndex((job) => job.id === id);
-        console.log(id, index);
+        // console.log(id, index);
         if (index !== -1) {
             jobs.splice(index, 1);
         }
-        console.log(jobs.length);
+        // console.log(jobs.length);
         return index !== -1;
     }
 }

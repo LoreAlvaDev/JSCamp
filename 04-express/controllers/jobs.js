@@ -22,7 +22,7 @@ export class JobController {
 
     static async create(req, res) {
         //previamente hay que parsear el json del body en un middleware
-        console.log(`creando ${req.body}`);
+        // console.log(`creando ${req.body}`);
         const { titulo, empresa, ubicacion, descripcion, data } = req.body;
 
         const newJob = await JobModel.create({ titulo, empresa, descripcion, ubicacion, data });
@@ -37,17 +37,18 @@ export class JobController {
         //previamente hay que parsear el json del body en un middleware
         const { id } = req.params;
         const { titulo, empresa, ubicacion, descripcion, data } = req.body;
-        console.log(`modificando ${id}`);
+        // console.log(`modificando ${id}`);
         const updated = await JobModel.update({ id, titulo, empresa, ubicacion, descripcion, data });
         return res.json(updated);
     }
 
     static async partialUpdate(req, res) {
         const { id } = req.params;
+        if (!req.body) return res.status(500).json({ error: "se necesitan parámetros" });
         const { titulo, empresa, ubicacion, descripcion, data } = req.body;
-        console.log(`modificando patch ${id}`);
+        // console.log(`modificando patch ${id}`);
         const updated = await JobModel.partialUpdate({ id, titulo, empresa, ubicacion, descripcion, data });
-        console.log("recibimos", updated);
+        // console.log("recibimos", updated);
         return res.json(updated);
     }
 

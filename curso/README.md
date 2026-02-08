@@ -40,9 +40,10 @@ Sí, existe un certificado opcional y muy limitado de pago que incluye:
 - **03** - Estado Global y React Router
 - **04** - Node.js
 - **05** - TypeScript
-- **06** - SQL
-- **07** - CI/CD
-- **08** - Docker
+- **06** - Integración de IA
+- **07** - SQL
+- **08** - CI/CD
+- **09** - Docker
 
 ## 💻 Requisitos de Instalación
 
